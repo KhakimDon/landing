@@ -13,14 +13,16 @@ interface Row {
 }
 
 const ROWS: readonly Row[] = [
-  { feature: "Settlement в USDT за минуты", explat: "yes", bank: "no", swift: "no" },
-  { feature: "Pay In + Pay Out из одного API", explat: "yes", bank: "limited", swift: "no" },
-  { feature: "Локальные методы (СБП / Kaspi / Humo / GoPay / SEPA)", explat: "yes", bank: "limited", swift: "no" },
-  { feature: "Поддержка 7+ стран без отдельных интеграций", explat: "yes", bank: "no", swift: "limited" },
-  { feature: "HMAC-подпись, идемпотентность, callbacks", explat: "yes", bank: "limited", swift: "limited" },
-  { feature: "Авто-подбор трейдера и BIN-фильтры", explat: "yes", bank: "no", swift: "no" },
-  { feature: "Комиссия", explat: "от 1.5%", bank: "2–4%+", swift: "$25–$50" },
-  { feature: "Скорость зачисления", explat: "~12 сек", bank: "1–3 рабочих дня", swift: "1–5 рабочих дней" },
+  { feature: "Стабильный трафик 24/7 без простоев", explat: "yes", bank: "limited", swift: "no" },
+  { feature: "Постоянная выдача — выплаты без срывов", explat: "yes", bank: "limited", swift: "limited" },
+  { feature: "Все методы: телефон, карта, QR, deeplink, e-wallet", explat: "yes", bank: "limited", swift: "no" },
+  { feature: "Комиссия", explat: "от 1.5%", bank: "3–5%", swift: "5–8%" },
+  { feature: "Скорость зачисления", explat: "~12 сек", bank: "1–5 мин", swift: "5–30 мин" },
+  { feature: "Индивидуальный менеджер 24/7", explat: "yes", bank: "no", swift: "limited" },
+  { feature: "Покрытие географии", explat: "7+ стран", bank: "1–2 страны", swift: "разные SLA" },
+  { feature: "Реал-тайм дашборды и аналитика", explat: "yes", bank: "limited", swift: "no" },
+  { feature: "Идемпотентность + надёжные callbacks", explat: "yes", bank: "limited", swift: "no" },
+  { feature: "Прозрачные настройки лимитов и BIN-фильтров", explat: "yes", bank: "no", swift: "no" },
 ];
 
 export function Comparison() {
@@ -31,11 +33,11 @@ export function Comparison() {
         number="06"
         title={
           <>
-            Сравните с тем, что{" "}
-            <span className="text-gradient-accent">было раньше</span>
+            Сильнее остальных{" "}
+            <span className="text-gradient-accent">P2P-площадок</span>
           </>
         }
-        description="Те же платежи, но без банковских лимитов и SWIFT-задержек. Цифры из реальной практики мерчантов."
+        description="Стабильный трафик, постоянная выдача, индивидуальная поддержка и приемлемая комиссия. Сравните по фактам."
       />
 
       <motion.div
@@ -58,10 +60,10 @@ export function Comparison() {
               </span>
             </HeaderCell>
             <HeaderCell>
-              <span className="text-sm sm:text-base">Банк</span>
+              <span className="text-sm sm:text-base">Другие P2P</span>
             </HeaderCell>
             <HeaderCell>
-              <span className="text-sm sm:text-base">SWIFT</span>
+              <span className="text-sm sm:text-base">OTC / шлюз</span>
             </HeaderCell>
           </div>
 
@@ -103,8 +105,8 @@ export function Comparison() {
               </div>
               <div className="divide-y divide-white/[0.04]">
                 <MobileRow label="Explat" value={r.explat} highlight />
-                <MobileRow label="Банк" value={r.bank} />
-                <MobileRow label="SWIFT" value={r.swift} />
+                <MobileRow label="Другие P2P" value={r.bank} />
+                <MobileRow label="OTC / шлюз" value={r.swift} />
               </div>
             </motion.li>
           ))}
