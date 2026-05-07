@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { cn } from "@/lib/cn";
 
@@ -183,9 +183,11 @@ function Odometer({
   );
 }
 
-/** Одна цифра-слот: блок-маска высотой 1ch, внутри стек 0..9, мы сдвигаем
- *  стек вверх на digit*100% чтобы остановиться на нужной цифре.
- *  Плюс лёгкий «overshoot» через spring-like easing. */
+/** Одна цифра-слот: маска высотой 1em (= размер шрифта), внутри
+ *  вертикальный стек 0..9, который сдвигается через motion's `y` в
+ *  em-юнитах. em-единицы — ключ к правильной геометрии: высота слота
+ *  совпадает с шагом и совпадает с font-size, всё попадает в baseline.
+ *  Никаких % и flex-обёрток — line-height 1, баланс гарантирован. */
 function DigitSlot({
   digit,
   active,
@@ -195,43 +197,46 @@ function DigitSlot({
   active: boolean;
   delay: number;
 }) {
-  const [target, setTarget] = useState(0);
-
-  useEffect(() => {
-    if (!active) {
-      setTarget(0);
-      return;
-    }
-    const t = window.setTimeout(() => setTarget(digit), delay * 1000);
-    return () => window.clearTimeout(t);
-  }, [active, digit, delay]);
-
-  // Слегка «перелетаем» цифру, потом возвращаемся — bouncy odometer.
-  // Реализовано через CSS transition с custom easing.
   return (
     <span
-      className="relative inline-block overflow-hidden align-baseline tabular-nums"
-      style={{ width: "0.62em", height: "1em" }}
+      style={{
+        display: "inline-block",
+        overflow: "hidden",
+        height: "1em",
+        lineHeight: 1,
+        verticalAlign: "baseline",
+        width: "0.62em",
+        textAlign: "center",
+        fontVariantNumeric: "tabular-nums",
+      }}
       aria-hidden
     >
-      <span
-        className="absolute inset-x-0 top-0 flex flex-col items-center will-change-transform"
+      <motion.span
+        initial={{ y: "0em" }}
+        animate={{ y: active ? `-${digit}em` : "0em" }}
+        transition={{
+          duration: 1.1,
+          ease: [0.22, 1, 0.36, 1],
+          delay,
+        }}
         style={{
-          transform: `translateY(-${target * 100}%)`,
-          transition:
-            "transform 1.1s cubic-bezier(0.22, 1, 0.36, 1)",
+          display: "block",
+          willChange: "transform",
         }}
       >
         {Array.from({ length: 10 }).map((_, n) => (
           <span
             key={n}
-            className="block h-[1em] leading-none"
-            style={{ height: "1em" }}
+            style={{
+              display: "block",
+              height: "1em",
+              lineHeight: 1,
+            }}
           >
             {n}
           </span>
         ))}
-      </span>
+      </motion.span>
     </span>
   );
 }
