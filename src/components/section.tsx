@@ -3,8 +3,8 @@ import { type ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)" },
 };
 
 export function SectionEyebrow({

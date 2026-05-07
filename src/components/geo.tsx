@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Section, SectionHeading } from "./section";
 
 interface Country {
@@ -143,6 +144,15 @@ export function Geo() {
  *  Точки генерим программно как сетка с прозрачностью; пины —
  *  абсолютно позиционированные элементы с пульсом. */
 function DottedMap({ countries }: { countries: readonly Country[] }) {
+  // Scroll-driven parallax: карта чуть наклоняется при скролле.
+  const ref = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const tilt = useTransform(scrollYProgress, [0, 1], [4, -4]);
+  const drift = useTransform(scrollYProgress, [0, 1], [-30, 30]);
+
   // Сетка точек 28×16 — даёт «глобус-feel» без svg-карты.
   const cols = 36;
   const rows = 18;
@@ -164,10 +174,17 @@ function DottedMap({ countries }: { countries: readonly Country[] }) {
 
   return (
     <motion.div
+      ref={ref}
       initial={{ opacity: 0, scale: 0.96 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      style={{
+        rotateX: tilt,
+        // Лёгкий drift по Y чтобы карта «жила» при скролле.
+        y: drift,
+        transformPerspective: 1200,
+      }}
       className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl border border-white/[0.06] bg-[radial-gradient(ellipse_at_center,_#0e0e12_0%,_#050505_70%)] sm:aspect-[16/9]"
     >
       {/* Глоу за глобусом */}
