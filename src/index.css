@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-bg: #050505;
+  --color-bg-elev: #0b0b0d;
+  --color-line: #1a1a1f;
+  --color-line-bright: #2a2a30;
+  --color-fg: #f5f5f7;
+  --color-fg-muted: #8a8a92;
+  --color-fg-dim: #5a5a62;
+  --color-accent: #00f5a0;
+  --color-accent-2: #00d9ff;
+  --color-accent-warm: #ffb86b;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  background-color: #050505;
+  color: #f5f5f7;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* SVG-based grain noise — тонкая текстура поверх фона. */
+.bg-noise {
+  background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2.4s ease-in-out infinite;
+}
+
+/* Дыхание совы — медленный масштаб + лёгкий drift */
+@keyframes owl-breath {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 24px rgba(0, 245, 160, 0.18)); }
+  50%      { transform: scale(1.018); filter: drop-shadow(0 0 60px rgba(0, 245, 160, 0.42)); }
+}
+.animate-owl-breath {
+  animation: owl-breath 5.5s ease-in-out infinite;
+}
+
+/* Орбита констелляции */
+@keyframes orbit-cw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes orbit-ccw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+.animate-orbit-slow  { animation: orbit-cw  60s linear infinite; }
+.animate-orbit-mid   { animation: orbit-cw  42s linear infinite; }
+.animate-orbit-fast  { animation: orbit-ccw 28s linear infinite; }
+
+/* Counter-rotate: чтобы content внутри орбиты не крутился */
+@keyframes orbit-cw-counter  { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+@keyframes orbit-ccw-counter { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.animate-orbit-slow-counter { animation: orbit-cw-counter  60s linear infinite; }
+.animate-orbit-mid-counter  { animation: orbit-cw-counter  42s linear infinite; }
+.animate-orbit-fast-counter { animation: orbit-ccw-counter 28s linear infinite; }
+
+/* Mesh-aurora: медленный плывущий цветной фон */
+@keyframes aurora {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.bg-aurora {
+  background:
+    radial-gradient(60% 60% at 30% 20%, rgba(0, 245, 160, 0.22), transparent 60%),
+    radial-gradient(50% 50% at 80% 30%, rgba(0, 217, 255, 0.18), transparent 60%),
+    radial-gradient(70% 70% at 50% 90%, rgba(255, 184, 107, 0.10), transparent 60%);
+  background-size: 200% 200%;
+  animation: aurora 18s ease-in-out infinite;
+}
+
+/* Каркас для gradient-border на cards */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(0, 245, 160, 0.35), rgba(0, 217, 255, 0.15), transparent 60%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+.text-gradient-accent {
+  background-image: linear-gradient(
+    135deg,
+    var(--color-accent) 0%,
+    var(--color-accent-2) 60%,
+    #ffffff 110%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-glow {
+  box-shadow:
+    0 0 0 1px rgba(0, 245, 160, 0.35),
+    0 12px 32px -10px rgba(0, 245, 160, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.glass {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+::selection {
+  background: rgba(0, 245, 160, 0.35);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a1f;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2a30;
+}
