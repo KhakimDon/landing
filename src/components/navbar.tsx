@@ -60,12 +60,6 @@ export function Navbar() {
 
         <div className="hidden items-center gap-3 md:flex">
           <a
-            href="https://quasi.explat.io/admin/"
-            className="rounded-md px-3 py-2 text-sm text-[color:var(--color-fg-muted)] transition-colors hover:text-white"
-          >
-            Войти
-          </a>
-          <a
             href="#contact"
             className="group inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-medium text-black transition-transform hover:scale-[1.02]"
           >
@@ -106,13 +100,6 @@ export function Navbar() {
                 </a>
               ))}
               <div className="my-2 h-px bg-white/[0.06]" />
-              <a
-                href="https://quasi.explat.io/admin/"
-                onClick={() => setMobileOpen(false)}
-                className="rounded-lg px-3 py-3 text-base text-[color:var(--color-fg-muted)]"
-              >
-                Войти
-              </a>
               <a
                 href="#contact"
                 onClick={() => setMobileOpen(false)}
