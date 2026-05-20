@@ -21,9 +21,6 @@ export function Footer() {
             <FooterLink href="#security">Безопасность</FooterLink>
           </FooterCol>
           <FooterCol title="Контакты">
-            <FooterLink href="mailto:hello@explat.io">
-              hello@explat.io
-            </FooterLink>
             <FooterLink href="https://t.me/explat_COO">Telegram</FooterLink>
           </FooterCol>
         </div>
