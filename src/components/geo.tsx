@@ -83,7 +83,7 @@ export function Geo() {
             <span className="text-gradient-accent">7 рынков</span>
           </>
         }
-        description="Локальные методы оплаты в каждой стране. Принимайте RUB, KZT, UZS, KGS, EUR, IDR, KRW — settlement всегда в USDT, без задержек на банк-корреспонденте."
+        description="Локальные способы оплаты в каждой стране. Принимайте RUB, KZT, UZS, KGS, EUR, IDR, KRW — расчёт всегда в USDT, без задержек на банке-корреспонденте."
       />
 
       <div className="mt-12 grid gap-8 lg:mt-16 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-14">

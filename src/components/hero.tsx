@@ -77,7 +77,7 @@ export function Hero() {
               <span className="font-mono tracking-[0.16em]">EXPLAT</span>
               <span className="hidden text-[color:var(--color-fg-dim)] sm:inline">·</span>
               <span className="hidden sm:inline">
-                Платежи без банковских ограничений
+                Платёжный эквайринг нового поколения
               </span>
             </motion.div>
 
@@ -86,10 +86,10 @@ export function Hero() {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="mt-6 text-balance text-4xl font-semibold leading-[1.04] tracking-[-0.03em] sm:text-5xl md:text-6xl lg:text-[64px] xl:text-[76px]"
             >
-              <span className="text-gradient-accent">Процессинговая</span>{" "}
-              инфраструктура
+              Приём и выплаты{" "}
+              <span className="text-gradient-accent">по всему миру</span>
               <br />
-              нового поколения
+              одной интеграцией
             </motion.h1>
 
             <motion.p
@@ -97,9 +97,9 @@ export function Hero() {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-[color:var(--color-fg-muted)] sm:text-lg"
             >
-              Принимайте и отправляйте платежи в локальных валютах через сеть
-              верифицированных трейдеров. Settlement в USDT, поддержка десятков
-              банков, прозрачные расчёты и контроль через единый канал.
+              Подключите локальные способы оплаты в каждой стране одной
+              интеграцией. Клиенты платят в своей валюте — вы получаете расчёт
+              в USDT. Быстро, прозрачно и без банковских ограничений.
             </motion.p>
 
             <motion.div
@@ -118,7 +118,7 @@ export function Hero() {
                 href="#services"
                 className="inline-flex items-center justify-center gap-1.5 rounded-full border border-white/15 bg-white/[0.02] px-7 py-3.5 text-base font-medium text-white/90 backdrop-blur transition-colors hover:bg-white/[0.06]"
               >
-                Что мы умеем
+                Смотреть возможности
               </MagneticAnchor>
             </motion.div>
 
@@ -129,11 +129,11 @@ export function Hero() {
             >
               <span className="inline-flex items-center gap-1.5">
                 <ShieldCheck className="size-4 text-white/70" />
-                HMAC SHA-256
+                Защита банковского уровня
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <Zap className="size-4 text-white/70" />
-                Settlement за минуты
+                Выплаты за минуты
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <Globe2 className="size-4 text-white/70" />

@@ -4,9 +4,9 @@ import { cn } from "@/lib/cn";
 
 const STATS = [
   { value: 50, suffix: "+", label: "Поддерживаемых банков" },
-  { value: 24, suffix: "/7", label: "Доступность инфраструктуры" },
-  { value: 99.9, suffix: "%", label: "Аптайм платёжного шлюза" },
-  { value: 12, suffix: " ⌀ сек", label: "Среднее время settlement" },
+  { value: 24, suffix: "/7", label: "Поддержка и доступность" },
+  { value: 99.9, suffix: "%", label: "Бесперебойная работа шлюза" },
+  { value: 12, suffix: " ⌀ сек", label: "Среднее время расчёта" },
 ] as const;
 
 export function Stats() {

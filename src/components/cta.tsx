@@ -26,8 +26,8 @@ export function CTA() {
             <span className="text-gradient-accent">платежи</span>?
           </h2>
           <p className="mt-5 max-w-xl text-pretty text-base text-[color:var(--color-fg-muted)] sm:text-lg">
-            Дайте знать своего объёма и валюты — пришлём интеграционный
-            пакет, sandbox-ключи и контакт менеджера в течение часа.
+            Расскажите про объём и валюты — пришлём интеграционный пакет,
+            тестовые ключи и контакт персонального менеджера в течение часа.
           </p>
 
           <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center">

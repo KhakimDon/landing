@@ -9,8 +9,8 @@ export function Footer() {
             className="block h-7 w-auto self-start object-contain"
           />
           <p className="max-w-md text-sm text-[color:var(--color-fg-muted)]">
-            Платёжная P2P-инфраструктура для бизнеса. Pay-In и Pay-Out через
-            сеть верифицированных трейдеров, settlement в USDT.
+            Платёжная инфраструктура для бизнеса: приём и выплаты в локальных
+            валютах по всему миру с расчётом в USDT.
           </p>
         </div>
 

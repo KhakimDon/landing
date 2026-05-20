@@ -31,7 +31,7 @@ const METHODS: readonly Method[] = [
     icon: Phone,
     title: "По номеру телефона",
     description:
-      "Клиент отправляет перевод на номер мобильного — мы автоматически распознаём подтверждение и зачисляем мерчанта.",
+      "Клиент отправляет перевод на номер телефона — платёж распознаётся автоматически и тут же зачисляется вам.",
     tone: "accent",
     tags: ["СБП", "Kaspi", "Humo"],
   },
@@ -39,7 +39,7 @@ const METHODS: readonly Method[] = [
     icon: CreditCard,
     title: "По номеру карты",
     description:
-      "Прямые карточные переводы (C2C) с авто-распознаванием через SMS банков и фильтром по BIN.",
+      "Прямые переводы с карты на карту. Платёж подтверждается автоматически из банковской SMS — без ручной сверки.",
     tone: "cyan",
     tags: ["VISA", "MIR", "Mastercard"],
   },
@@ -69,17 +69,17 @@ const METHODS: readonly Method[] = [
   },
   {
     icon: ArrowUpFromLine,
-    title: "Стабильный Pay Out",
+    title: "Стабильные выплаты",
     description:
-      "Выплаты с подбором свободного трейдера, частичными подтверждениями и каскадом при overflow.",
+      "Выплаты без срывов: система сама подбирает свободного трейдера, а при пиковой нагрузке подключает каскад.",
     tone: "warm",
     tags: ["~12 сек", "Cascade"],
   },
   {
     icon: Banknote,
-    title: "Bank transfer",
+    title: "Банковский перевод",
     description:
-      "Переводы по реквизитам банковского счёта (SEPA / IBAN / локальные wires) — для крупных сумм.",
+      "Переводы по реквизитам счёта (SEPA, IBAN, локальные сети) — удобно для крупных сумм.",
     tone: "accent",
     tags: ["SEPA", "IBAN"],
   },
@@ -103,7 +103,7 @@ const METHODS: readonly Method[] = [
     icon: Building2,
     title: "Корпоративные счета",
     description:
-      "B2B-приём с автоматической сверкой по назначению платежа и привязкой к invoice / order_id.",
+      "Приём для B2B с автоматической сверкой по назначению платежа и привязкой к вашему заказу.",
     tone: "accent",
     tags: ["Reconciliation"],
   },
@@ -121,7 +121,7 @@ export function Services() {
             <span className="text-gradient-accent">в одной платформе</span>
           </>
         }
-        description="Подключите клиента так, как ему удобно — телефон, карта, QR, deeplink, e-wallet или банковский перевод. Мы матчим платёж и кладём средства мерчанту в USDT."
+        description="Дайте клиенту платить так, как ему удобно — телефон, карта, QR, deeplink, e-wallet или банковский перевод. Платёж распознаётся автоматически, а средства зачисляются вам в USDT."
       />
 
       <div className="mt-12 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:mt-16 lg:grid-cols-3 xl:gap-5">
@@ -152,8 +152,8 @@ export function Services() {
               И больше методов под запрос
             </h3>
             <p className="mt-1.5 text-sm leading-relaxed text-[color:var(--color-fg-muted)]">
-              Open Banking, USDT-stable payouts, локальные ваучеры, кастомные
-              интеграции под объём от 100k USDT/мес.
+              Open Banking, выплаты в USDT, локальные ваучеры и кастомные
+              интеграции под ваш объём — соберём решение под задачу.
             </p>
           </div>
           <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-white/85 transition-colors group-hover:text-white">
