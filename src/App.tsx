@@ -7,7 +7,6 @@ import { Geo } from "./components/geo";
 import { Features } from "./components/features";
 import { BanksMarquee } from "./components/banks-marquee";
 import { Security } from "./components/security";
-import { Comparison } from "./components/comparison";
 import { Faq } from "./components/faq";
 import { CTA } from "./components/cta";
 import { Footer } from "./components/footer";
@@ -29,7 +28,6 @@ function App() {
         <Geo />
         <Features />
         <Security />
-        <Comparison />
         <BanksMarquee />
         <Faq />
         <CTA />

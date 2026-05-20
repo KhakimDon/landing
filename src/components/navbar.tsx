@@ -7,7 +7,6 @@ const NAV_LINKS = [
   { href: "#services", label: "Сервисы" },
   { href: "#geo", label: "География" },
   { href: "#features", label: "Возможности" },
-  { href: "#why", label: "Почему мы" },
   { href: "#faq", label: "FAQ" },
 ] as const;
 

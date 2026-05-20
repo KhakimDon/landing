@@ -14,30 +14,18 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="grid w-full grid-cols-2 gap-8 sm:max-w-md sm:grid-cols-3 lg:w-auto">
+        <div className="grid w-full grid-cols-2 gap-8 sm:max-w-md sm:grid-cols-2 lg:w-auto">
           <FooterCol title="Продукт">
             <FooterLink href="#services">Сервисы</FooterLink>
             <FooterLink href="#features">Возможности</FooterLink>
             <FooterLink href="#security">Безопасность</FooterLink>
           </FooterCol>
-          <FooterCol title="Войти">
-            <FooterLink href="https://trader.explat.io">Трейдер</FooterLink>
-            <FooterLink href="https://merchant.explat.io">Мерчант</FooterLink>
-            <FooterLink href="https://panel.explat.io">Админ</FooterLink>
-          </FooterCol>
           <FooterCol title="Контакты">
             <FooterLink href="mailto:hello@explat.io">
               hello@explat.io
             </FooterLink>
-            <FooterLink href="https://t.me/explat_io">Telegram</FooterLink>
+            <FooterLink href="https://t.me/explat_COO">Telegram</FooterLink>
           </FooterCol>
-        </div>
-      </div>
-
-      <div className="border-t border-white/[0.04]">
-        <div className="mx-auto flex max-w-7xl flex-col items-start gap-2 px-4 py-6 text-xs text-[color:var(--color-fg-dim)] sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-          <div>© {new Date().getFullYear()} Explat. All rights reserved.</div>
-          <div className="font-mono uppercase tracking-[0.2em]">v1.0</div>
         </div>
       </div>
     </footer>
