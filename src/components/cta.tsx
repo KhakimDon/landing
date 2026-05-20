@@ -32,7 +32,7 @@ export function CTA() {
 
           <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center">
             <a
-              href="https://t.me/explat_io"
+              href="https://t.me/explat_ceo"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-glow group inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--color-accent)] px-6 py-3 text-base font-semibold text-black transition-transform hover:scale-[1.02]"
@@ -40,12 +40,6 @@ export function CTA() {
               <MessageCircle className="size-4" />
               Написать в Telegram
               <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-            <a
-              href="mailto:hello@explat.io"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.02] px-6 py-3 text-base font-medium text-white/90 transition-colors hover:bg-white/[0.06]"
-            >
-              hello@explat.io
             </a>
           </div>
         </div>
